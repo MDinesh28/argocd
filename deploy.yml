@@ -2,32 +2,32 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: train
-  name: train-deploy
+    app: vpc
+  name: vpc-deploy
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: train
+      app: vpc
   template:
     metadata:
       labels:
-        app: train
+        app: vpc
     spec:
       containers:
       - name: cont1
-        image: mdinesh28/movies:latest
+        image: mdinesh28/vpc:latest
         ports:
           - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: abc
+  name: aws
 spec:
   type: LoadBalancer
   selector:
-    app: train
+    app: vpc
   ports:
     - port: 80
       targetPort: 80
