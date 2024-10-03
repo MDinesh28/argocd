@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cont1
-        image: mdinesh28/ec2
+        image: mdinesh28/vpc
         ports:
           - containerPort: 80
 ---
