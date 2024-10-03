@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: vpc
-  name: vpc-deploy
+    app: ec2
+  name: ec2-deploy
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: vpc
+      app: ec2
   template:
     metadata:
       labels:
-        app: vpc
+        app: ec2
     spec:
       containers:
       - name: cont1
-        image: mdinesh28/vpc
+        image: mdinesh28/ec2
         ports:
           - containerPort: 80
 ---
@@ -27,7 +27,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: vpc
+    app: ec2
   ports:
     - port: 80
       targetPort: 80
